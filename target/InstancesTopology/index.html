@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link href="css/styles.css" rel="stylesheet" />
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/navbar.css" rel="stylesheet">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/d3.v3.min.js"></script>
+<script type="text/javascript" src="js/script_25.js"></script>
+<script>
+	var data;
+/* 	$(document).ready(function() {
+		$.get('GenericTopology', function(responseJson) {
+			data = responseJson;
+		});
+	});
+ */</script>
+</head>
+<body class="topologyGraph">
+
+	<div id="slider"></div>
+	<div id="graphs"></div>
+	<div class="searchWrapper">
+		<div class="search">
+			<input type="text" value="" class="searchInput"> <input
+				type="button" value="search" class="searchNode">
+		</div>
+	</div>
+	<div id="graph"></div>
+
+	<div class="zoomWrapper dNone">
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-primary active"> <input type="radio"
+				name="options" id="option1"> Normal </label> <label
+				class="btn btn-primary"> <input type="radio" name="options"
+				id="option2"> Zoom 1 </label> <label class="btn btn-primary">
+				<input type="radio" name="options" id="option3"> Zoom 2 </label> <label
+				class="btn btn-primary"> <input type="radio" name="options"
+				id="option4"> Zoom 3 </label> <label class="btn btn-primary">
+				<input type="radio" name="options" id="option5"> Zoom 4 </label>
+		</div>
+	</div>
+	<div class="navigation"></div>
+	<div class="col1 topologyGraph">
+		<div class="node">
+			<div class="nodeWrapper">
+				<span class="nodeIcon app"></span>
+				<div class="nodeIndicatorWrapper">
+					<span class="nodeIndicator state red"></span> <span
+						class="nodeIndicator state green"></span> <span class="nodeSizes">M</span>
+				</div>
+				<div class="nodeMenu">
+					<!-- Static navbar -->
+					<div class="navbar navbar-default">
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown"> <i class="icon-align-justify"></i>
+								</a></li>
+							</ul>
+						</div>
+						<!--/.nav-collapse -->
+					</div>
+				</div>
+				<span class="nodeName">NS5</span>
+				<div class="nodeIP">
+					<span class="ipTertiary">192.168.</span><span class="ipSecondary">1.</span><span
+						class="ipPrimary">2</span>
+				</div>
+				<div class="nodeLegends">
+					<!-- Static navbar -->
+					<div class="navbar navbar-default">
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li class="dropdown">
+
+									<ul class="dropdown-menu">
+										<li><span class="legend apache">A</span>
+											<div class="subLegends cols2">
+												<span class="legend other1"></span> <span
+													class="legend other2"></span>
+											</div></li>
+										<li><span class="legend java">J</span>
+											<div class="subLegends cols1">
+												<span class="legend other3"></span>
+											</div></li>
+										<li><span class="legend ubuntu">U</span>
+											<div class="subLegends cols1">
+												<span class="legend other4"></span>
+											</div></li>
+									</ul> <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<i class="icon-caret-down"></i> <i class="icon-caret-up"></i>
+								</a></li>
+							</ul>
+						</div>
+						<!--/.nav-collapse -->
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="nodeMenu nodeExternalMenu">
+		<ul class="dropdown-menu">
+			<li><a href="#">Tag</a></li>
+			<li><a href="#">Clone</a></li>
+			<li><a href="#">Run Workflow</a></li>
+			<li><a href="#">Group</a></li>
+		</ul>
+		<div class='submenuOverlay'></div>
+	</div>
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ellipsis.js"></script>
+	<script type="text/javascript" src="js/jquery.qtip.js"></script>
+	<script type="text/javascript" src="js/script_25.js"></script>
+	<script type="text/javascript" src="js/shortcut.js"></script>
+	
+</body>
+</html>
+
