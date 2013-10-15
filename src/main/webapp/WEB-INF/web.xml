@@ -1,0 +1,43 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>InstancesTopology</servlet-name>
+    <servlet-class>com.imaginea.serverlocator.InstancesTopology</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InstancesTopology</servlet-name>
+    <url-pattern>default/*</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>GenericTopology</servlet-name>
+    <servlet-class>com.imaginea.serverlocator.GenericTopology</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GenericTopology</servlet-name>
+    <url-pattern>/GenericTopology/*</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+    <servlet-name>SpecificInstancesTopology</servlet-name>
+    <servlet-class>com.imaginea.serverlocator.SpecificInstancesTopology</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SpecificInstancesTopology</servlet-name>
+    <url-pattern>specific/*</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>SpecificTopology</servlet-name>
+    <servlet-class>com.imaginea.serverlocator.SpecificTopology</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SpecificTopology</servlet-name>
+    <url-pattern>/SpecificTopology/*</url-pattern>
+  </servlet-mapping>
+</web-app>

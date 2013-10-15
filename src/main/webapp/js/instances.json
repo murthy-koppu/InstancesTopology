@@ -1,0 +1,602 @@
+[
+    {
+        "virtualizationType": "paravirtual",
+        "blockDeviceMappings": [
+            {
+                "ebs": {
+                    "deleteOnTermination": false,
+                    "volumeId": "vol-7cda5621",
+                    "status": "attached",
+                    "attachTime": "2013-07-15T13:37:32+0000"
+                },
+                "deviceName": "/dev/sdh"
+            }
+        ],
+        "privateIpAddress": "10.164.44.211",
+        "rootDeviceType": "instance-store",
+        "productCodes": [
+            
+        ],
+        "launchTime": "2013-07-15T13:29:33+0000",
+        "stateTransitionReason": "",
+        "ramdiskId": null,
+        "iamInstanceProfile": null,
+        "tags": [
+            {
+                "value": "staging.cloudjee.com",
+                "key": "Name"
+            }
+        ],
+        "spotInstanceRequestId": null,
+        "vpcId": null,
+        "ebsOptimized": false,
+        "hypervisor": "xen",
+        "instanceId": "i-aa55d4c1",
+        "kernelId": "aki-805ea7e9",
+        "platform": null,
+        "sourceDestCheck": null,
+        "securityGroups": [
+            {
+                "groupName": "cloudjee-platform-clusterdb",
+                "groupId": "sg-b456f1df"
+            },
+            {
+                "groupName": "jclouds#test",
+                "groupId": "sg-4978a422"
+            },
+            {
+                "groupName": "cloudjee-platform-lb",
+                "groupId": "sg-0871d463"
+            },
+            {
+                "groupName": "cloudjee-ssh-group",
+                "groupId": "sg-812ef6ea"
+            },
+            {
+                "groupName": "cloudjee-platform-db",
+                "groupId": "sg-cea500a5"
+            },
+            {
+                "groupName": "cloudjee-platform-server",
+                "groupId": "sg-432ff728"
+            }
+        ],
+        "keyName": "cloudjee-admin",
+        "instanceLifecycle": null,
+        "imageId": "ami-90e076f9",
+        "amiLaunchIndex": 0,
+        "privateDnsName": "ip-10-164-44-211.ec2.internal",
+        "placement": {
+            "tenancy": "default",
+            "groupName": "",
+            "availabilityZone": "us-east-1b"
+        },
+        "rootDeviceName": null,
+        "license": null,
+        "instanceType": "m1.medium",
+        "subnetId": null,
+        "architecture": "i386",
+        "stateReason": null,
+        "clientToken": "",
+        "publicIpAddress": "174.129.207.255",
+        "monitoring": {
+            "state": "enabled"
+        },
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "networkInterfaces": [
+            
+        ],
+        "publicDnsName": "ec2-174-129-207-255.compute-1.amazonaws.com"
+    },
+    {
+        "virtualizationType": "paravirtual",
+        "blockDeviceMappings": [
+            
+        ],
+        "privateIpAddress": "10.192.23.209",
+        "rootDeviceType": "instance-store",
+        "productCodes": [
+            
+        ],
+        "launchTime": "2013-07-04T08:50:20+0000",
+        "stateTransitionReason": "",
+        "ramdiskId": null,
+        "iamInstanceProfile": null,
+        "tags": [
+            {
+                "value": "dev.cloudjee.com",
+                "key": "Name"
+            }
+        ],
+        "spotInstanceRequestId": null,
+        "vpcId": null,
+        "ebsOptimized": false,
+        "hypervisor": "xen",
+        "instanceId": "i-98b911f0",
+        "kernelId": "aki-805ea7e9",
+        "platform": null,
+        "sourceDestCheck": null,
+        "securityGroups": [
+            {
+                "groupName": "cloudjee-platform-clusterdb",
+                "groupId": "sg-b456f1df"
+            },
+            {
+                "groupName": "cloudjee-platform-lb",
+                "groupId": "sg-0871d463"
+            },
+            {
+                "groupName": "cloudjee-ssh-group",
+                "groupId": "sg-812ef6ea"
+            },
+            {
+                "groupName": "cloudjee-platform-db",
+                "groupId": "sg-cea500a5"
+            },
+            {
+                "groupName": "cloudjee-platform-server",
+                "groupId": "sg-432ff728"
+            }
+        ],
+        "keyName": "cloudjee-admin",
+        "instanceLifecycle": null,
+        "imageId": "ami-90e076f9",
+        "amiLaunchIndex": 0,
+        "privateDnsName": "domU-12-31-39-0E-14-23.compute-1.internal",
+        "placement": {
+            "tenancy": "default",
+            "groupName": "",
+            "availabilityZone": "us-east-1a"
+        },
+        "rootDeviceName": null,
+        "license": null,
+        "instanceType": "m1.small",
+        "subnetId": null,
+        "architecture": "i386",
+        "stateReason": null,
+        "clientToken": "",
+        "publicIpAddress": "54.235.133.66",
+        "monitoring": {
+            "state": "enabled"
+        },
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "networkInterfaces": [
+            
+        ],
+        "publicDnsName": "ec2-54-235-133-66.compute-1.amazonaws.com"
+    },
+    {
+        "virtualizationType": "paravirtual",
+        "blockDeviceMappings": [
+            
+        ],
+        "privateIpAddress": "10.209.191.80",
+        "rootDeviceType": "instance-store",
+        "productCodes": [
+            
+        ],
+        "launchTime": "2013-07-05T10:00:27+0000",
+        "stateTransitionReason": "",
+        "ramdiskId": null,
+        "iamInstanceProfile": null,
+        "tags": [
+            {
+                "value": "monitoring-server",
+                "key": "Name"
+            }
+        ],
+        "spotInstanceRequestId": null,
+        "vpcId": null,
+        "ebsOptimized": false,
+        "hypervisor": "xen",
+        "instanceId": "i-8aac8eeb",
+        "kernelId": "aki-805ea7e9",
+        "platform": null,
+        "sourceDestCheck": null,
+        "securityGroups": [
+            {
+                "groupName": "cloudjee-ssh-group",
+                "groupId": "sg-812ef6ea"
+            },
+            {
+                "groupName": "cloudjee-monitoring-server",
+                "groupId": "sg-967fdafd"
+            }
+        ],
+        "keyName": "cloudjee-admin",
+        "instanceLifecycle": null,
+        "imageId": "ami-90e076f9",
+        "amiLaunchIndex": 0,
+        "privateDnsName": "domU-12-31-39-07-BC-A2.compute-1.internal",
+        "placement": {
+            "tenancy": "default",
+            "groupName": "",
+            "availabilityZone": "us-east-1a"
+        },
+        "rootDeviceName": null,
+        "license": null,
+        "instanceType": "m1.small",
+        "subnetId": null,
+        "architecture": "i386",
+        "stateReason": null,
+        "clientToken": "",
+        "publicIpAddress": "54.227.117.19",
+        "monitoring": {
+            "state": "enabled"
+        },
+        "state": {
+            "code": 272,
+            "name": "running"
+        },
+        "networkInterfaces": [
+            
+        ],
+        "publicDnsName": "ec2-54-227-117-19.compute-1.amazonaws.com"
+    },
+    {
+        "virtualizationType": "paravirtual",
+        "blockDeviceMappings": [
+            
+        ],
+        "privateIpAddress": "10.72.5.8",
+        "rootDeviceType": "instance-store",
+        "productCodes": [
+            
+        ],
+        "launchTime": "2013-09-11T09:09:53+0000",
+        "stateTransitionReason": "",
+        "ramdiskId": null,
+        "iamInstanceProfile": null,
+        "tags": [
+            
+        ],
+        "spotInstanceRequestId": null,
+        "vpcId": null,
+        "ebsOptimized": false,
+        "hypervisor": "xen",
+        "instanceId": "i-32671856",
+        "kernelId": "aki-88aa75e1",
+        "platform": null,
+        "sourceDestCheck": null,
+        "securityGroups": [
+            {
+                "groupName": "default",
+                "groupId": "sg-015cab68"
+            }
+        ],
+        "keyName": "vijay",
+        "instanceLifecycle": null,
+        "imageId": "ami-6779370e",
+        "amiLaunchIndex": 0,
+        "privateDnsName": "ip-10-72-5-8.ec2.internal",
+        "placement": {
+            "tenancy": "default",
+            "groupName": "",
+            "availabilityZone": "us-east-1a"
+        },
+        "rootDeviceName": null,
+        "license": null,
+        "instanceType": "m1.large",
+        "subnetId": null,
+        "architecture": "x86_64",
+        "stateReason": null,
+        "clientToken": "",
+        "publicIpAddress": "23.22.93.17",
+        "monitoring": {
+            "state": "disabled"
+        },
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "networkInterfaces": [
+            
+        ],
+        "publicDnsName": "ec2-23-22-93-17.compute-1.amazonaws.com"
+    },
+    {
+        "virtualizationType": "paravirtual",
+        "blockDeviceMappings": [
+            {
+                "ebs": {
+                    "deleteOnTermination": true,
+                    "volumeId": "vol-75b27602",
+                    "status": "attached",
+                    "attachTime": "2013-09-13T05:52:52+0000"
+                },
+                "deviceName": "/dev/sda1"
+            },
+            {
+                "ebs": {
+                    "deleteOnTermination": false,
+                    "volumeId": "vol-17b27660",
+                    "status": "attached",
+                    "attachTime": "2013-09-13T05:52:52+0000"
+                },
+                "deviceName": "/dev/sdf4"
+            }
+        ],
+        "privateIpAddress": "10.190.94.48",
+        "rootDeviceType": "ebs",
+        "productCodes": [
+            
+        ],
+        "launchTime": "2013-09-13T05:52:50+0000",
+        "stateTransitionReason": "",
+        "ramdiskId": null,
+        "iamInstanceProfile": null,
+        "tags": [
+            {
+                "value": "GraphiteServer",
+                "key": "Name"
+            }
+        ],
+        "spotInstanceRequestId": null,
+        "vpcId": null,
+        "ebsOptimized": false,
+        "hypervisor": "xen",
+        "instanceId": "i-7e67211a",
+        "kernelId": "aki-88aa75e1",
+        "platform": null,
+        "sourceDestCheck": null,
+        "securityGroups": [
+            {
+                "groupName": "cloudjee-ssh-group",
+                "groupId": "sg-812ef6ea"
+            },
+            {
+                "groupName": "cloudjee-monitoring-server",
+                "groupId": "sg-967fdafd"
+            }
+        ],
+        "keyName": "cloudjee-admin",
+        "instanceLifecycle": null,
+        "imageId": "ami-affcbec6",
+        "amiLaunchIndex": 0,
+        "privateDnsName": "ip-10-190-94-48.ec2.internal",
+        "placement": {
+            "tenancy": "default",
+            "groupName": "",
+            "availabilityZone": "us-east-1a"
+        },
+        "rootDeviceName": "/dev/sda1",
+        "license": null,
+        "instanceType": "m1.medium",
+        "subnetId": null,
+        "architecture": "x86_64",
+        "stateReason": null,
+        "clientToken": "PYPPD1379051569716",
+        "publicIpAddress": "54.242.23.135",
+        "monitoring": {
+            "state": "disabled"
+        },
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "networkInterfaces": [
+            
+        ],
+        "publicDnsName": "ec2-54-242-23-135.compute-1.amazonaws.com"
+    },
+    {
+        "virtualizationType": "paravirtual",
+        "blockDeviceMappings": [
+            
+        ],
+        "privateIpAddress": "10.240.117.172",
+        "rootDeviceType": "instance-store",
+        "productCodes": [
+            
+        ],
+        "launchTime": "2013-08-20T13:31:53+0000",
+        "stateTransitionReason": "",
+        "ramdiskId": null,
+        "iamInstanceProfile": null,
+        "tags": [
+            {
+                "value": "wp-docportal",
+                "key": "Name"
+            }
+        ],
+        "spotInstanceRequestId": null,
+        "vpcId": null,
+        "ebsOptimized": false,
+        "hypervisor": "xen",
+        "instanceId": "i-01d79778",
+        "kernelId": "aki-b6aa75df",
+        "platform": null,
+        "sourceDestCheck": null,
+        "securityGroups": [
+            {
+                "groupName": "default",
+                "groupId": "sg-015cab68"
+            }
+        ],
+        "keyName": "Ashfaq",
+        "instanceLifecycle": null,
+        "imageId": "ami-947408fd",
+        "amiLaunchIndex": 0,
+        "privateDnsName": "domU-12-31-39-04-72-42.compute-1.internal",
+        "placement": {
+            "tenancy": "default",
+            "groupName": "",
+            "availabilityZone": "us-east-1a"
+        },
+        "rootDeviceName": null,
+        "license": null,
+        "instanceType": "m1.small",
+        "subnetId": null,
+        "architecture": "i386",
+        "stateReason": null,
+        "clientToken": "",
+        "publicIpAddress": "54.211.92.216",
+        "monitoring": {
+            "state": "disabled"
+        },
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "networkInterfaces": [
+            
+        ],
+        "publicDnsName": "ec2-54-211-92-216.compute-1.amazonaws.com"
+    },
+    {
+        "virtualizationType": "paravirtual",
+        "blockDeviceMappings": [
+            {
+                "ebs": {
+                    "deleteOnTermination": true,
+                    "volumeId": "vol-b044adf3",
+                    "status": "attached",
+                    "attachTime": "2013-09-12T09:38:09+0000"
+                },
+                "deviceName": "/dev/sda1"
+            }
+        ],
+        "privateIpAddress": null,
+        "rootDeviceType": "ebs",
+        "productCodes": [
+            
+        ],
+        "launchTime": "2013-09-12T09:38:06+0000",
+        "stateTransitionReason": "User initiated (2013-09-12 09:50:36 GMT)",
+        "ramdiskId": null,
+        "iamInstanceProfile": null,
+        "tags": [
+            {
+                "value": "puppet-master",
+                "key": "Name"
+            }
+        ],
+        "spotInstanceRequestId": null,
+        "vpcId": null,
+        "ebsOptimized": false,
+        "hypervisor": "xen",
+        "instanceId": "i-fc035094",
+        "kernelId": "aki-88aa75e1",
+        "platform": null,
+        "sourceDestCheck": null,
+        "securityGroups": [
+            {
+                "groupName": "StressTest",
+                "groupId": "sg-a66e9bcd"
+            }
+        ],
+        "keyName": "cloudjee-admin",
+        "instanceLifecycle": null,
+        "imageId": "ami-496c2220",
+        "amiLaunchIndex": 0,
+        "privateDnsName": "",
+        "placement": {
+            "tenancy": "default",
+            "groupName": "",
+            "availabilityZone": "us-east-1b"
+        },
+        "rootDeviceName": "/dev/sda1",
+        "license": null,
+        "instanceType": "t1.micro",
+        "subnetId": null,
+        "architecture": "x86_64",
+        "stateReason": {
+            "message": "Client.UserInitiatedShutdown: User initiated shutdown",
+            "code": "Client.UserInitiatedShutdown"
+        },
+        "clientToken": "VcdVc1378978686498",
+        "publicIpAddress": null,
+        "monitoring": {
+            "state": "disabled"
+        },
+        "state": {
+            "code": 80,
+            "name": "stopped"
+        },
+        "networkInterfaces": [
+            
+        ],
+        "publicDnsName": ""
+    },
+    {
+        "virtualizationType": "paravirtual",
+        "blockDeviceMappings": [
+            {
+                "ebs": {
+                    "deleteOnTermination": false,
+                    "volumeId": "vol-ce190fb0",
+                    "status": "attached",
+                    "attachTime": "2013-01-28T09:12:30+0000"
+                },
+                "deviceName": "/dev/sda4"
+            }
+        ],
+        "privateIpAddress": null,
+        "rootDeviceType": "ebs",
+        "productCodes": [
+            
+        ],
+        "launchTime": "2013-01-28T09:12:26+0000",
+        "stateTransitionReason": "Server.InternalError",
+        "ramdiskId": null,
+        "iamInstanceProfile": null,
+        "tags": [
+            {
+                "value": "appd-controller",
+                "key": "Name"
+            }
+        ],
+        "spotInstanceRequestId": null,
+        "vpcId": null,
+        "ebsOptimized": false,
+        "hypervisor": "xen",
+        "instanceId": "i-8af321fa",
+        "kernelId": "aki-407d9529",
+        "platform": null,
+        "sourceDestCheck": null,
+        "securityGroups": [
+            {
+                "groupName": "cloud-security-group",
+                "groupId": "sg-c571b8ac"
+            }
+        ],
+        "keyName": "vinod",
+        "instanceLifecycle": null,
+        "imageId": "ami-3fdc5456",
+        "amiLaunchIndex": 0,
+        "privateDnsName": "",
+        "placement": {
+            "tenancy": "default",
+            "groupName": "",
+            "availabilityZone": "us-east-1a"
+        },
+        "rootDeviceName": "/dev/sda1",
+        "license": null,
+        "instanceType": "m1.small",
+        "subnetId": null,
+        "architecture": "i386",
+        "stateReason": {
+            "message": "Server.ScheduledStop: Stopped due to scheduled retirement",
+            "code": "Server.ScheduledStop"
+        },
+        "clientToken": "",
+        "publicIpAddress": null,
+        "monitoring": {
+            "state": "disabled"
+        },
+        "state": {
+            "code": 80,
+            "name": "stopped"
+        },
+        "networkInterfaces": [
+            
+        ],
+        "publicDnsName": ""
+    }
+]
