@@ -18,7 +18,7 @@ public class InstancesTopology extends HttpServlet
 	public static JSONObject genericTopologyData = null;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-    	System.out.println("Entered");
+
     	genericTopologyData = new AWSInstanceUtil().getInstanceRelationsInJson();
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);

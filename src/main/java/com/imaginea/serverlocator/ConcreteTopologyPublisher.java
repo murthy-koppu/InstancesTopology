@@ -29,8 +29,8 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 	List<JSONObject> lsNewDerivedNodesFmNetStat = new ArrayList<JSONObject>();
 
 	public ConcreteTopologyPublisher() {
-		//loadGenericTopologyFromFile(ApplicationConstants.GENERIC_DEPLOYMENT_JSON_DATA_LOCATION);
-		//loadJsonInstNodesToMap();
+		// loadGenericTopologyFromFile(ApplicationConstants.GENERIC_DEPLOYMENT_JSON_DATA_LOCATION);
+		// loadJsonInstNodesToMap();
 	}
 
 	public void loadGenericTopologyFromFile(String filePath) {
@@ -62,21 +62,19 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 		}
 	}
 
-	public JSONObject loadGenericTopologyFromJson(
-			JSONObject genericParamJson) throws JSONException {
-		System.out.println(genericParamJson.toString());
+	public JSONObject loadGenericTopologyFromJson(JSONObject genericParamJson)
+			throws JSONException {
 		genericTopologyJson = new JSONObject(genericParamJson.toString());
 		genericTopologyJson.remove("links");
 		loadJsonInstNodesToMap();
 		publishAbsoluteConcreteTopologyJson();
 		return genericTopologyJson;
-		
+
 	}
 
 	private void loadJsonInstNodesToMap() {
 		JSONArray instNodes;
 		try {
-			
 			instNodes = genericTopologyJson.getJSONArray("nodes");
 			jsonNodesLength = instNodes.length();
 			if (instNodes != null) {
@@ -90,10 +88,6 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public void appendServersToTopologyJson() {
-
 	}
 
 	private void publishAbsoluteConcreteTopologyJson() {
@@ -116,9 +110,12 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 				e.printStackTrace();
 			}
 		}
-		/*Utils.writeJsonToDeployment("$('document').ready(function () { \n data = "
-				+ genericTopologyJson.toString()
-				+ "; \n });", CONCRETE_DEPLOYMENT_JSON_DATA_LOCATION);*/
+		/*
+		 * Utils.writeJsonToDeployment(
+		 * "$('document').ready(function () { \n data = " +
+		 * genericTopologyJson.toString() + "; \n });",
+		 * CONCRETE_DEPLOYMENT_JSON_DATA_LOCATION);
+		 */
 	}
 
 	private void appendLinksToTopologyJson(String localIp, String foreignIp,
@@ -179,11 +176,12 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 
 	}
 
-	/*public static void main(String[] args) {
-		new AWSInstanceUtil();
-		new ConcreteTopologyPublisher().publishAbsoluteConcreteTopologyJson();
-
-	}*/
+	/*
+	 * public static void main(String[] args) { new AWSInstanceUtil(); new
+	 * ConcreteTopologyPublisher().publishAbsoluteConcreteTopologyJson();
+	 * 
+	 * }
+	 */
 
 	public void processNetStatRecs(String netStatIn, String systemIps) {
 		Set<Integer> listeningPorts = new HashSet<Integer>();

@@ -1,4 +1,8 @@
 $('document').ready(function () {
+	$.get('GenericTopology', function(responseJson) {
+		data = responseJson;
+		drawGraph(data);
+	});
     function drawGraph(json) {
         //doc width
         var width = $(document).width();
@@ -291,7 +295,7 @@ $('document').ready(function () {
     
 
 
-    drawGraph(data);
+   /* drawGraph(data);*/
 
 /*    $('.menuItems').each(function () {
 

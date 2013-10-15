@@ -23,7 +23,6 @@ public class GenericTopology extends HttpServlet {
 		JSONObject genericTopologyData =InstancesTopology.genericTopologyData;
 		System.out.println(genericTopologyData.toString());
 		response.getWriter().write(genericTopologyData.toString());
-		// response.setHeader("topologyData", genericTopologyData);
 
 	}
 }
