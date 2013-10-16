@@ -20,6 +20,10 @@ public class GenericTopology extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		JSONObject genericTopologyData =InstancesTopology.genericTopologyData;
+		if(genericTopologyData == null){
+			genericTopologyData = new AWSInstanceUtil().getInstanceRelationsInJson();
+		}
+		System.out.println(genericTopologyData.toString());
 		response.getWriter().write(genericTopologyData.toString());
 
 	}

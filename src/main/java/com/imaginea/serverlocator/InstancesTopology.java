@@ -20,6 +20,7 @@ public class InstancesTopology extends HttpServlet
     {
 
     	genericTopologyData = new AWSInstanceUtil().getInstanceRelationsInJson();
+    	
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);
         

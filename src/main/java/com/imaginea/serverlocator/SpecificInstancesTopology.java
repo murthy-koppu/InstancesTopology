@@ -21,7 +21,10 @@ public class SpecificInstancesTopology extends HttpServlet
     {
     	try {
 			specificTopologyJson = new JSONObject(InstancesTopology.genericTopologyData.toString());
-		} catch (JSONException e1) {
+			if(specificTopologyJson == null){
+				specificTopologyJson = new AWSInstanceUtil().getInstanceRelationsInJson();
+			}
+    	} catch (JSONException e1) {
 			e1.printStackTrace();
 		}
     	ConcreteTopologyPublisher concreateTopologyPublisher =new ConcreteTopologyPublisher();

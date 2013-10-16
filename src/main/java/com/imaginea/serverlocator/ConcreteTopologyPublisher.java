@@ -117,7 +117,8 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 		JSONObject localInstJsonProp = privateIpToInstanceJsonProp.get(localIp);
 		JSONObject foreignInstJsonProp = privateIpToInstanceJsonProp
 				.get(foreignIp);
-
+		
+		
 		if (foreignInstJsonProp == null) {
 			synchronized (this) {
 				foreignInstJsonProp = privateIpToInstanceJsonProp
@@ -135,9 +136,10 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 								++jsonNodesLength);
 						privateIpToInstanceJsonProp.put(foreignIp,
 								foreignInstJsonProp);
-						genericTopologyJson.append(
+						/*genericTopologyJson.append(
 								TOPOLOGY_INSTANCES_NODES_PARENT,
-								foreignInstJsonProp);
+								foreignInstJsonProp);*/
+						return;
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
@@ -207,6 +209,28 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 						.getIpAddress(), netStatRec.getForeignSkt()
 						.getIpAddress(), listeningPorts.contains(netStatRec
 						.getLocalSkt().getPort()));
+			}
+			JSONArray jsonLinksArr =null;
+			try {
+				jsonLinksArr = genericTopologyJson.getJSONArray(TOPOLOGY_INSTANCE_LINKS_PARENT);
+			} catch (JSONException e1) {
+				e1.printStackTrace();
+			}
+			if( jsonLinksArr == null || jsonLinksArr.length() == 0){
+				JSONObject linkJson = new JSONObject();			
+				try {
+					linkJson.put(TOPOLOGY_INSTANCE_LINK_SOURCE, 0);
+					linkJson.put(TOPOLOGY_INSTANCE_LINK_TARGET, 0);
+					linkJson.put(TOPOLOGY_INSTANCE_LINK_RELATIONSHIP, "rel");
+					synchronized (genericTopologyJson) {
+						genericTopologyJson.append(TOPOLOGY_INSTANCE_LINKS_PARENT,
+								linkJson);
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
