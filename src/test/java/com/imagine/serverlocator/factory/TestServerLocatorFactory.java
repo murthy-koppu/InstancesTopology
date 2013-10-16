@@ -51,6 +51,4 @@ public class TestServerLocatorFactory {
 		assertEquals(serverProp.getPortNo(), port);
 		assertEquals(serverProp.getServerName(), ServersEnum.ORACLE_DB.toString());
 	}
-
-
 }
