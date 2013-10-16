@@ -133,13 +133,13 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 								TOPOLOGY_INSTANCE_IS_START_POINT, false);
 						foreignInstJsonProp.put(
 								TOPOLOGY_INSTANCE_NODE_SERIAL_NO,
-								++jsonNodesLength);
+								jsonNodesLength++);
 						privateIpToInstanceJsonProp.put(foreignIp,
 								foreignInstJsonProp);
-						/*genericTopologyJson.append(
+						genericTopologyJson.append(
 								TOPOLOGY_INSTANCES_NODES_PARENT,
-								foreignInstJsonProp);*/
-						return;
+								foreignInstJsonProp);
+						//return;
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
