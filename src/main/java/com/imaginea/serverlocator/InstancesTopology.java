@@ -23,7 +23,6 @@ public class InstancesTopology extends HttpServlet
     	
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);
-        
         RequestDispatcher view = request.getRequestDispatcher("index.html");
         view.forward(request, response);
         

@@ -20,11 +20,13 @@ public class SpecificInstancesTopology extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
     	try {
-			specificTopologyJson = new JSONObject(InstancesTopology.genericTopologyData.toString());
-			if(specificTopologyJson == null){
+    		if(InstancesTopology.genericTopologyData != null){
+    			specificTopologyJson = new JSONObject(InstancesTopology.genericTopologyData.toString());
+    		}
+    		if(specificTopologyJson == null){
 				specificTopologyJson = new AWSInstanceUtil().getCanTalkOnTopology();
 			}
-    	} catch (JSONException e1) {
+    	} catch (Exception e1) {
 			e1.printStackTrace();
 		}
     	InstancesTalkingTopology concreateTopologyPublisher =new InstancesTalkingTopology();

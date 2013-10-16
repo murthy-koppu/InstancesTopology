@@ -23,7 +23,7 @@ public class GenericTopology extends HttpServlet {
 		if(genericTopologyData == null){
 			genericTopologyData = new AWSInstanceUtil().getCanTalkOnTopology();
 		}
-		System.out.println(genericTopologyData.toString());
+		System.out.println("Entered Generic"+genericTopologyData.toString());
 		response.getWriter().write(genericTopologyData.toString());
 
 	}

@@ -22,31 +22,23 @@ public class SpecificTopology extends HttpServlet {
 
 		JSONObject genericTopologyData =SpecificInstancesTopology.specificTopologyJson;
 		if(genericTopologyData == null){
-			JSONObject specificTopologyJson = null;
-			try {
-				if(InstancesTopology.genericTopologyData != null){
-					specificTopologyJson = new JSONObject(InstancesTopology.genericTopologyData.toString());
-				}				
+	    	try {
+	    		if(InstancesTopology.genericTopologyData != null){
+	    			genericTopologyData = new JSONObject(InstancesTopology.genericTopologyData.toString());
+	    		}
+	    		if(genericTopologyData == null){
+					genericTopologyData = new AWSInstanceUtil().getCanTalkOnTopology();
+				}
+	    	} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+	    	InstancesTalkingTopology concreateTopologyPublisher =new InstancesTalkingTopology();
+	    	try {
+				genericTopologyData = concreateTopologyPublisher.getIsTalkingOn(genericTopologyData);
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-			if(specificTopologyJson == null){
-				specificTopologyJson = new AWSInstanceUtil().getCanTalkOnTopology();
-			}
-			InstancesTalkingTopology concreateTopologyPublisher =new InstancesTalkingTopology();
-			try {
-				
-				genericTopologyData = concreateTopologyPublisher.getIsTalkingOn(specificTopologyJson);
-				System.out.println(genericTopologyData.toString());
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		System.out.println(genericTopologyData.toString());
+			}}
+		System.out.println("Entered talkingTo"+genericTopologyData.toString());
 		response.getWriter().write(genericTopologyData.toString());
 	}
 }
