@@ -23,13 +23,15 @@ public class AWSInstanceKeyPairLoader {
 				.get(instanceId);
 		return keyPairFilePath==null?null:keyPairFilePath;
 	}
-
+public static void main(String[] args) {
+	loadInstancesKeyPairMap();
+}
 	private static void loadInstancesKeyPairMap() {
 		BufferedReader keyPairInstanceIdFileReader;
 
 		try {
 			keyPairInstanceIdFileReader = new BufferedReader(
-					new InputStreamReader(new FileInputStream(
+					new InputStreamReader(AWSInstanceKeyPairLoader.class.getClassLoader().getResourceAsStream(
 							KEY_PAIR_INSTANCES_META_FILE_LOCATION)));
 			String strKeyPairInstances = null;
 			while ((strKeyPairInstances = keyPairInstanceIdFileReader

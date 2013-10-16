@@ -66,10 +66,13 @@ public class AWSConfigLoader {
 		private static Properties awsCredentialProperties = new Properties();
 		{
 			try {
+				/*;
 				FileInputStream file = new FileInputStream(
 						ApplicationConstants.RESOURCES_LOCATION_PATH
-								+ AWS_CREDENTITALS_PROP_FILE_NAME);
-				awsCredentialProperties.load(file);
+								+ AWS_CREDENTITALS_PROP_FILE_NAME);*/
+				awsCredentialProperties.load(AWSConfigLoader.class.getClassLoader().getResourceAsStream(
+						ApplicationConstants.RESOURCES_LOCATION_PATH
+						+ AWS_CREDENTITALS_PROP_FILE_NAME));
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {

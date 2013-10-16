@@ -19,11 +19,7 @@ public class SpecificTopology extends HttpServlet {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 
-		System.out.println("Entered speicific");
 		JSONObject genericTopologyData =SpecificInstancesTopology.specificTopologyJson;
-		System.out.println("final data is for specific "+genericTopologyData.toString());
 		response.getWriter().write(genericTopologyData.toString());
-		// response.setHeader("topologyData", genericTopologyData);
-
 	}
 }

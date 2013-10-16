@@ -19,9 +19,7 @@ public class GenericTopology extends HttpServlet {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 
-		System.out.println("Entered Generic");
 		JSONObject genericTopologyData =InstancesTopology.genericTopologyData;
-		System.out.println(genericTopologyData.toString());
 		response.getWriter().write(genericTopologyData.toString());
 
 	}

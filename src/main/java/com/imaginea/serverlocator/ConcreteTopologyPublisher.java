@@ -88,28 +88,28 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 		String[] InstancePrivateIpsArr = (String[]) privateIpToInstanceJsonProp
 				.keySet().toArray(new String[1]);
 		List<Thread> lsInitializedThreads = new ArrayList<Thread>();
+		
 		for (String instanceIp : InstancePrivateIpsArr) {
-			JSONObject instanceJsonProperties = privateIpToInstanceJsonProp
-					.get(instanceIp);
-			RemoteSshProcessor remoteSshProcessor = new RemoteSshProcessor(
-					this, instanceJsonProperties);
-			Thread remoteSshThread = new Thread(remoteSshProcessor);
-			lsInitializedThreads.add(remoteSshThread);
-			remoteSshThread.start();
+			try{
+				JSONObject instanceJsonProperties = privateIpToInstanceJsonProp
+						.get(instanceIp);
+				RemoteSshProcessor remoteSshProcessor = new RemoteSshProcessor(
+						this, instanceJsonProperties);
+				Thread remoteSshThread = new Thread(remoteSshProcessor);
+				lsInitializedThreads.add(remoteSshThread);
+				remoteSshThread.start();
+			}catch(Exception e){
+				e.printStackTrace();
+			}			
 		}
 		for (Thread remoteSshThread : lsInitializedThreads) {
 			try {
-				remoteSshThread.join();
+				remoteSshThread.join(10000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		/*
-		 * Utils.writeJsonToDeployment(
-		 * "$('document').ready(function () { \n data = " +
-		 * genericTopologyJson.toString() + "; \n });",
-		 * CONCRETE_DEPLOYMENT_JSON_DATA_LOCATION);
-		 */
+		
 	}
 
 	private void appendLinksToTopologyJson(String localIp, String foreignIp,
@@ -209,7 +209,6 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 						.getLocalSkt().getPort()));
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

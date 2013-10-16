@@ -7,6 +7,7 @@ import java.awt.Insets;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Properties;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -18,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.imaginea.serverlocator.model.KeyPairUserIdModel;
+import com.imaginea.serverlocator.util.AWSConfigLoader;
 import com.imaginea.serverlocator.util.AWSInstanceKeyPairLoader;
 import com.imaginea.serverlocator.util.ApplicationConstants;
 import com.jcraft.jsch.Channel;
@@ -41,10 +43,17 @@ public class RemoteSshProcessor implements Runnable, ApplicationConstants {
 	public void run() {
 		JSch jsch = new JSch();
 		try {
+			
 			KeyPairUserIdModel keyPairUserIdObj = AWSInstanceKeyPairLoader
 					.getKeyPairUserIdModel(instanceJsonProperties
 							.getString(TOPOLOGY_INSTANCE_NODE_INSTANCE_ID));
-			jsch.addIdentity(INSTANCE_KEY_PAIRS_LOCATION
+			InputStream inStream = this.getClass().getClassLoader().getResourceAsStream(INSTANCE_KEY_PAIRS_LOCATION
+					+ keyPairUserIdObj.getKeyPair()+".pem");
+			InputStream propFileInputStream = AWSConfigLoader.class
+					.getClassLoader().getResourceAsStream("config.properties");
+			Properties properties = new Properties();
+			properties.load(propFileInputStream);
+			jsch.addIdentity(properties.getProperty("instanceKeyPairs.directory")
 					+ keyPairUserIdObj.getKeyPair()+".pem");
 			Session session = jsch.getSession(keyPairUserIdObj.getUserId(),
 					instanceJsonProperties
@@ -118,7 +127,6 @@ public class RemoteSshProcessor implements Runnable, ApplicationConstants {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

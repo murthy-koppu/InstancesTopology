@@ -99,9 +99,10 @@ public class Utils {
 	}
 
 	public static String getResourcesLocationPath() {
-		String path = Utils.class.getProtectionDomain().getCodeSource()
+	/*	String path = Utils.class.getProtectionDomain().getCodeSource()
 				.getLocation().getPath()
-				+ "/../";
+				+ "/../";*/
+		String path = "./";
 		try {
 			return URLDecoder.decode(path, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
