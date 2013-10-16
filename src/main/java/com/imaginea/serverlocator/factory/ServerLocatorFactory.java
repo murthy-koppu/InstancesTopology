@@ -8,10 +8,10 @@ import java.util.Arrays;
 
 import org.apache.log4j.Logger;
 
-import com.imaginea.serverlocator.impl.AppServerLocator;
-import com.imaginea.serverlocator.impl.MySQLLocator;
-import com.imaginea.serverlocator.impl.OracleDBLocator;
-import com.imaginea.serverlocator.impl.ServerProperties;
+import com.imaginea.serverlocator.locators.AppServerLocator;
+import com.imaginea.serverlocator.locators.MySQLLocator;
+import com.imaginea.serverlocator.locators.OracleDBLocator;
+import com.imaginea.serverlocator.locators.ServerProperties;
 import com.imaginea.serverlocator.util.ConnectionProperties;
 import com.imaginea.serverlocator.util.ServersEnum;
 

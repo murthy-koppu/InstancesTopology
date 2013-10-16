@@ -13,7 +13,6 @@ import org.json.JSONObject;
 import com.imaginea.serverlocator.factory.ServerLocator;
 import com.imaginea.serverlocator.model.NetStatProcessModel;
 import com.imaginea.serverlocator.model.NetStatSocketModel;
-import com.imaginea.serverlocator.util.AWSInstanceUtil;
 import com.imaginea.serverlocator.util.ApplicationConstants;
 import com.imaginea.serverlocator.util.Utils;
 

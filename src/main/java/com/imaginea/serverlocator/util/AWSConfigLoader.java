@@ -76,7 +76,6 @@ public class AWSConfigLoader {
 		@Override
 		public String getAWSSecretKey() {
 			return awsCredentialProperties.get("secretKey").toString();
-
 		}
 	}
 

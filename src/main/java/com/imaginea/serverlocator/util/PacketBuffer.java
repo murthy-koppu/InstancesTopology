@@ -1,6 +1,5 @@
 package com.imaginea.serverlocator.util;
 
-
 public class PacketBuffer {
 	private int packetPosition = -1;
 	private byte[] packet = null;
@@ -59,7 +58,5 @@ public class PacketBuffer {
 		while(packet[getPacketPosition()] != 0)
 			;
 	}
-	
-	
 	
 }

@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>InstancesTopology</servlet-name>
-    <servlet-class>com.imaginea.serverlocator.InstancesTopology</servlet-class>
+    <servlet-class>com.imaginea.serverlocator.controllers.InstancesTopology</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>InstancesTopology</servlet-name>
@@ -15,7 +15,7 @@
   
    <servlet>
     <servlet-name>GenericTopology</servlet-name>
-    <servlet-class>com.imaginea.serverlocator.GenericTopology</servlet-class>
+    <servlet-class>com.imaginea.serverlocator.controllers.GenericTopology</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GenericTopology</servlet-name>
@@ -25,7 +25,7 @@
   
    <servlet>
     <servlet-name>SpecificInstancesTopology</servlet-name>
-    <servlet-class>com.imaginea.serverlocator.SpecificInstancesTopology</servlet-class>
+    <servlet-class>com.imaginea.serverlocator.controllers.SpecificInstancesTopology</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SpecificInstancesTopology</servlet-name>
@@ -34,7 +34,7 @@
   
    <servlet>
     <servlet-name>SpecificTopology</servlet-name>
-    <servlet-class>com.imaginea.serverlocator.SpecificTopology</servlet-class>
+    <servlet-class>com.imaginea.serverlocator.controllers.SpecificTopology</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SpecificTopology</servlet-name>
