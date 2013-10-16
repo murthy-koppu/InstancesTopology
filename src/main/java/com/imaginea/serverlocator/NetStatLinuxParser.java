@@ -33,7 +33,6 @@ public class NetStatLinuxParser implements ApplicationConstants {
 
 	private void parseNetStatRecord(String netStatRecord) throws Exception {
 		try {
-			System.out.println("NetStatRecord is"+netStatRecord);
 			String[] netStatAttribs = netStatRecord.split(",");
 			String strLocalSkt = netStatAttribs[0];
 			String strForeignSocket = netStatAttribs[1];

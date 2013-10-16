@@ -14,11 +14,11 @@ import com.imaginea.serverlocator.util.AWSInstanceUtil;
 
 public class GenericTopology extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+		HttpServletResponse response) throws ServletException, IOException {
 
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-
+		
 		JSONObject genericTopologyData =InstancesTopology.genericTopologyData;
 		if(genericTopologyData == null){
 			genericTopologyData = new AWSInstanceUtil().getCanTalkOnTopology();
