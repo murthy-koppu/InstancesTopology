@@ -22,14 +22,14 @@ public class SpecificInstancesTopology extends HttpServlet
     	try {
 			specificTopologyJson = new JSONObject(InstancesTopology.genericTopologyData.toString());
 			if(specificTopologyJson == null){
-				specificTopologyJson = new AWSInstanceUtil().getInstanceRelationsInJson();
+				specificTopologyJson = new AWSInstanceUtil().getCanTalkOnTopology();
 			}
     	} catch (JSONException e1) {
 			e1.printStackTrace();
 		}
-    	ConcreteTopologyPublisher concreateTopologyPublisher =new ConcreteTopologyPublisher();
+    	InstancesTalkingTopology concreateTopologyPublisher =new InstancesTalkingTopology();
     	try {
-			specificTopologyJson = concreateTopologyPublisher.loadGenericTopologyFromJson(specificTopologyJson);
+			specificTopologyJson = concreateTopologyPublisher.getIsTalkingOn(specificTopologyJson);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

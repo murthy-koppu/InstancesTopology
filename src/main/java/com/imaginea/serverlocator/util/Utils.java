@@ -15,6 +15,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.net.URLDecoder;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -23,12 +24,24 @@ public class Utils {
 
 	static Logger log = Logger.getLogger(Utils.class);
 	private static final Set<String> defaultLocalIps = new HashSet<String>();
+	private static final Properties configProperties = new Properties();
 	static {
 		defaultLocalIps.add("127.0.0.1");
 		defaultLocalIps.add("0.0.0.0");
 		defaultLocalIps.add("localhost");
 		defaultLocalIps.add("::");
 		defaultLocalIps.add("::1");
+		InputStream propertiesFileIStream = Utils.class.getClassLoader()
+				.getResourceAsStream("config.properties");
+		try {
+			configProperties.load(propertiesFileIStream);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static String getConfigPropertyAttribute(String attribName) {
+		return configProperties.getProperty(attribName);
 	}
 
 	public static DataInputStream getDataInStreamFromServer(Socket socket)
@@ -99,9 +112,10 @@ public class Utils {
 	}
 
 	public static String getResourcesLocationPath() {
-	/*	String path = Utils.class.getProtectionDomain().getCodeSource()
-				.getLocation().getPath()
-				+ "/../";*/
+		/*
+		 * String path = Utils.class.getProtectionDomain().getCodeSource()
+		 * .getLocation().getPath() + "/../";
+		 */
 		String path = "./";
 		try {
 			return URLDecoder.decode(path, "UTF-8");
@@ -110,11 +124,14 @@ public class Utils {
 		}
 		return path;
 	}
-	
-	public static void writeJsonToDeployment(String jsonTopologyGenericData,String fileLocation){
+
+	public static void writeJsonToDeployment(String jsonTopologyGenericData,
+			String fileLocation) {
 		try {
-			BufferedWriter jsonFileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileLocation)));
-			jsonFileWriter.write(jsonTopologyGenericData, 0, jsonTopologyGenericData.length());
+			BufferedWriter jsonFileWriter = new BufferedWriter(
+					new OutputStreamWriter(new FileOutputStream(fileLocation)));
+			jsonFileWriter.write(jsonTopologyGenericData, 0,
+					jsonTopologyGenericData.length());
 			jsonFileWriter.flush();
 			jsonFileWriter.close();
 		} catch (FileNotFoundException e) {
@@ -122,6 +139,6 @@ public class Utils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 }

@@ -34,12 +34,12 @@ public class SpecificTopology extends HttpServlet {
 				e.printStackTrace();
 			}
 			if(specificTopologyJson == null){
-				specificTopologyJson = new AWSInstanceUtil().getInstanceRelationsInJson();
+				specificTopologyJson = new AWSInstanceUtil().getCanTalkOnTopology();
 			}
-			ConcreteTopologyPublisher concreateTopologyPublisher =new ConcreteTopologyPublisher();
+			InstancesTalkingTopology concreateTopologyPublisher =new InstancesTalkingTopology();
 			try {
 				
-				genericTopologyData = concreateTopologyPublisher.loadGenericTopologyFromJson(specificTopologyJson);
+				genericTopologyData = concreateTopologyPublisher.getIsTalkingOn(specificTopologyJson);
 				System.out.println(genericTopologyData.toString());
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block

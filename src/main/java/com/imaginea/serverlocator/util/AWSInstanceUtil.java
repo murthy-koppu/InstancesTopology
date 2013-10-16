@@ -1,10 +1,5 @@
 package com.imaginea.serverlocator.util;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,29 +26,12 @@ public class AWSInstanceUtil implements ApplicationConstants{
 	List<Instance> lsInstances = new ArrayList<Instance>();
 	static final int START_POINT_ACCESS_PORT = 80;
 
-	public static void main(String[] args) {
-		AWSInstanceUtil obj = new AWSInstanceUtil();
-		obj.loadEC2Instances();		
-		//ApplicationConstants.DEPLOYMENT_JSON_DATA_LOCATION
-	}	
-	
-	public AWSInstanceUtil(){
-		/*loadEC2Instances();
-		Utils.writeJsonToDeployment("$('document').ready(function () { \n data = "
-				+ this.publishInstanceConnectionsToJson().toString()
-				+ "; \n });",ApplicationConstants.GENERIC_DEPLOYMENT_JSON_DATA_LOCATION);
-*/	}
-	
-	public JSONObject getInstanceRelationsInJson() {
-		AWSInstanceUtil obj = new AWSInstanceUtil();
-		obj.loadEC2Instances();
-		/*return "$('document').ready(function () { \n data = "
-				+ obj.publishInstanceConnectionsToJson().toString()
-				+ "; \n });";*/
-		return obj.publishInstanceConnectionsToJson();
+	public JSONObject getCanTalkOnTopology() {
+		loadEC2Instances();
+		return publishCanTalkOnToJson();
 	}
 
-	public JSONObject publishInstanceConnectionsToJson() {
+	public JSONObject publishCanTalkOnToJson() {
 		List<Instance> startPointInstances = findStartPointInstances();
 		JSONObject rootInstanceRel = new JSONObject();
 		Instance instance = null;
@@ -70,7 +48,7 @@ public class AWSInstanceUtil implements ApplicationConstants{
 				jsonInstances.put("isStartPoint",
 						startPointInstances.contains(instance) ? true : false);
 				rootInstanceRel.append(TOPOLOGY_INSTANCES_NODES_PARENT, jsonInstances);
-				publishInstanceLinksToJson(rootInstanceRel, instance, k);
+				publishCanTalkOnLinksToJson(rootInstanceRel, instance, k);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -78,7 +56,7 @@ public class AWSInstanceUtil implements ApplicationConstants{
 		return rootInstanceRel;
 	}
 
-	private void publishInstanceLinksToJson(JSONObject rootInstanceRel,
+	private void publishCanTalkOnLinksToJson(JSONObject rootInstanceRel,
 			Instance instance, int k) throws JSONException {
 		OptimizedIpPerms ipPermDtls = ipPermsToEachInstance.get(instance);
 		for (int t = 0; t < lsInstances.size(); t++) {

@@ -19,7 +19,7 @@ public class InstancesTopology extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
 
-    	genericTopologyData = new AWSInstanceUtil().getInstanceRelationsInJson();
+    	genericTopologyData = new AWSInstanceUtil().getCanTalkOnTopology();
     	
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);

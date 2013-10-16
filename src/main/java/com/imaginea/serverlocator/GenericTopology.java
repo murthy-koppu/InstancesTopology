@@ -21,7 +21,7 @@ public class GenericTopology extends HttpServlet {
 
 		JSONObject genericTopologyData =InstancesTopology.genericTopologyData;
 		if(genericTopologyData == null){
-			genericTopologyData = new AWSInstanceUtil().getInstanceRelationsInJson();
+			genericTopologyData = new AWSInstanceUtil().getCanTalkOnTopology();
 		}
 		System.out.println(genericTopologyData.toString());
 		response.getWriter().write(genericTopologyData.toString());

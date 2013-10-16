@@ -16,18 +16,10 @@ public class NetStatLinuxParser implements ApplicationConstants {
 	private static Logger log = Logger.getLogger(NetStatLinuxParser.class);
 	List<NetStatProcessModel> lsNetStatRecs = new ArrayList<NetStatProcessModel>();
 	Set<String> localIps = new HashSet<String>();
-	// Set<String> defaultLocalIps = new HashSet<String>();
-	private String systemIpAddr = null;
 
 	public NetStatLinuxParser() {
 		localIps.addAll(Utils.getDefaultLocalIps());
 	}
-
-	/*
-	 * private void initializeLocalIps() { defaultLocalIps.add("127.0.0.1");
-	 * defaultLocalIps.add("0.0.0.0"); defaultLocalIps.add("localhost");
-	 * defaultLocalIps.add(":::"); localIps.addAll(defaultLocalIps); }
-	 */
 
 	public List<NetStatProcessModel> getValidNetStatRecords(
 			String netStatInput, List<String> standardLocalIps)
@@ -41,6 +33,7 @@ public class NetStatLinuxParser implements ApplicationConstants {
 
 	private void parseNetStatRecord(String netStatRecord) throws Exception {
 		try {
+			System.out.println("NetStatRecord is"+netStatRecord);
 			String[] netStatAttribs = netStatRecord.split(",");
 			String strLocalSkt = netStatAttribs[0];
 			String strForeignSocket = netStatAttribs[1];
@@ -74,7 +67,6 @@ public class NetStatLinuxParser implements ApplicationConstants {
 							localSktMdl, foreignSktMdl);
 					lsNetStatRecs.add(netStatRec);
 				}
-
 			}
 
 		} catch (Exception e) {

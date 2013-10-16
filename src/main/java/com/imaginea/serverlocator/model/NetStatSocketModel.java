@@ -12,7 +12,6 @@ public class NetStatSocketModel {
 	private int port;
 	private boolean isAllPorts;
 	private boolean isAllIps;
-	private boolean isLocalIp;
 
 	public NetStatSocketModel(String ipAddress, String port, boolean isLocalIp)
 			throws Exception {
@@ -26,8 +25,7 @@ public class NetStatSocketModel {
 	}
 
 	public void setIpAddress(String ipAddress, boolean isLocalIp) {
-		ipAddress=Utils.downToIpV4(ipAddress);
-		this.isLocalIp = isLocalIp;
+		ipAddress = Utils.downToIpV4(ipAddress);
 		this.ipAddress = ipAddress;
 	}
 
@@ -66,14 +64,6 @@ public class NetStatSocketModel {
 
 	public void setAllIps(boolean isAllIps) {
 		this.isAllIps = isAllIps;
-	}
-
-	public boolean isLocalIp() {
-		return isLocalIp;
-	}
-
-	public void setLocalIp(boolean isLocalIp) {
-		this.isLocalIp = isLocalIp;
 	}
 
 }

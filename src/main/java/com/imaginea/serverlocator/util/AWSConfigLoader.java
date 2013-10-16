@@ -1,16 +1,10 @@
 package com.imaginea.serverlocator.util;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLDecoder;
 import java.util.Properties;
 
 import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.AWSCredentialsProvider;
-import com.amazonaws.auth.AWSCredentialsProviderChain;
-import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.RegionUtils;
 import com.amazonaws.services.ec2.AmazonEC2;
@@ -31,11 +25,8 @@ public class AWSConfigLoader {
 
 	static {
 		try {
-			InputStream propFileInputStream = AWSConfigLoader.class
-					.getClassLoader().getResourceAsStream("config.properties");
-			properties.load(propFileInputStream);
-			region = RegionUtils.getRegion(properties
-					.getProperty("request.region"));
+			region = RegionUtils.getRegion(Utils
+					.getConfigPropertyAttribute("request.region"));
 			amazonEC2.setRegion(region);
 			String awsArn = amazonIM.getUser().getUser().getArn();
 			int accountIdStartPos = awsArn.indexOf("::") + 2;
@@ -66,13 +57,10 @@ public class AWSConfigLoader {
 		private static Properties awsCredentialProperties = new Properties();
 		{
 			try {
-				/*;
-				FileInputStream file = new FileInputStream(
-						ApplicationConstants.RESOURCES_LOCATION_PATH
-								+ AWS_CREDENTITALS_PROP_FILE_NAME);*/
-				awsCredentialProperties.load(AWSConfigLoader.class.getClassLoader().getResourceAsStream(
-						ApplicationConstants.RESOURCES_LOCATION_PATH
-						+ AWS_CREDENTITALS_PROP_FILE_NAME));
+				awsCredentialProperties.load(AWSConfigLoader.class
+						.getClassLoader().getResourceAsStream(
+								ApplicationConstants.RESOURCES_LOCATION_PATH
+										+ AWS_CREDENTITALS_PROP_FILE_NAME));
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
