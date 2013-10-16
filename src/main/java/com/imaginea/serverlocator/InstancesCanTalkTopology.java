@@ -50,7 +50,7 @@ public class InstancesCanTalkTopology implements ApplicationConstants{
 				jsonInstances.put("isStartPoint",
 						startPointInstances.contains(instance) ? true : false);
 				rootInstanceRel.append(TOPOLOGY_INSTANCES_NODES_PARENT, jsonInstances);
-				publishCanTalkOnLinksToJson(rootInstanceRel, instance, k);
+				addInstanceLinksToJson(rootInstanceRel, instance, k);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -58,7 +58,7 @@ public class InstancesCanTalkTopology implements ApplicationConstants{
 		return rootInstanceRel;
 	}
 
-	private void publishCanTalkOnLinksToJson(JSONObject rootInstanceRel,
+	private void addInstanceLinksToJson(JSONObject rootInstanceRel,
 			Instance instance, int k) throws JSONException {
 		OptimizedIpPerms ipPermDtls = ipPermsToEachInstance.get(instance);
 		for (int t = 0; t < lsInstances.size(); t++) {
