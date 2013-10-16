@@ -28,12 +28,7 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 	private volatile int jsonNodesLength = 0;
 	List<JSONObject> lsNewDerivedNodesFmNetStat = new ArrayList<JSONObject>();
 
-	public ConcreteTopologyPublisher() {
-		// loadGenericTopologyFromFile(ApplicationConstants.GENERIC_DEPLOYMENT_JSON_DATA_LOCATION);
-		// loadJsonInstNodesToMap();
-	}
-
-	public void loadGenericTopologyFromFile(String filePath) {
+	public void loadGenericTopologyFromFile(String filePath) throws JSONException, IOException {
 		BufferedReader jsonFileReader;
 		try {
 			jsonFileReader = new BufferedReader(new InputStreamReader(
@@ -51,14 +46,14 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 			loadGenericTopologyFromJson(new JSONObject(
 					strGenericTopologyJson.toString()));
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			throw e1;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw e;
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw e;
 		}
 	}
 
@@ -69,7 +64,6 @@ public class ConcreteTopologyPublisher implements ApplicationConstants {
 		loadJsonInstNodesToMap();
 		publishAbsoluteConcreteTopologyJson();
 		return genericTopologyJson;
-
 	}
 
 	private void loadJsonInstNodesToMap() {
