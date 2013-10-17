@@ -2,7 +2,6 @@ package com.imaginea.serverlocator.controllers;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,25 +20,30 @@ public class SpecificTopology extends HttpServlet {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 
-		JSONObject genericTopologyData =SpecificInstancesTopology.specificTopologyJson;
-		if(genericTopologyData == null){
-	    	try {
-	    		if(InstancesTopology.genericTopologyData != null){
-	    			genericTopologyData = new JSONObject(InstancesTopology.genericTopologyData.toString());
-	    		}
-	    		if(genericTopologyData == null){
-					genericTopologyData = new InstancesCanTalkTopology().getCanTalkOnTopology();
+		JSONObject genericTopologyData = SpecificInstancesTopology.specificTopologyJson;
+		if (genericTopologyData == null) {
+			try {
+				if (InstancesTopology.genericTopologyData != null) {
+					genericTopologyData = new JSONObject(
+							InstancesTopology.genericTopologyData.toString());
 				}
-	    	} catch (Exception e1) {
+				if (genericTopologyData == null) {
+					genericTopologyData = new InstancesCanTalkTopology()
+							.getCanTalkOnTopology();
+				}
+			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
-	    	InstancesTalkingTopology concreateTopologyPublisher =new InstancesTalkingTopology();
-	    	try {
-				genericTopologyData = concreateTopologyPublisher.getIsTalkingOn(genericTopologyData);
+			InstancesTalkingTopology concreateTopologyPublisher = new InstancesTalkingTopology();
+			try {
+				genericTopologyData = concreateTopologyPublisher
+						.getIsTalkingOn(genericTopologyData);
 			} catch (JSONException e) {
 				e.printStackTrace();
-			}}
-		System.out.println("Entered talkingTo"+genericTopologyData.toString());
+			}
+		}
+		System.out
+				.println("Entered talkingTo" + genericTopologyData.toString());
 		response.getWriter().write(genericTopologyData.toString());
 	}
 }

@@ -10,7 +10,7 @@ import com.imaginea.serverlocator.locators.ServerProperties;
 import com.imaginea.serverlocator.util.ConnectionProperties;
 import com.imaginea.serverlocator.util.ServersEnum;
 
-public class TestServerLocatorFactory {
+public class ServerLocatorFactoryTests {
 
 	@Test
 	public void testGetServerLocatorStringIntMySQL() {

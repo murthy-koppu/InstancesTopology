@@ -79,5 +79,21 @@ public class NetStatLinuxParser implements ApplicationConstants {
 		return (sktMdlIn.getPort() < 1025 || sktMdlIn.isAllPorts()) ? true
 				: false;
 	}
+	
+	public List<String> getStandardSystemIP(String systemIps) {
+		String[] systemIpsArr = systemIps.split(";");
+		List<String> standardIps = new ArrayList<String>(systemIpsArr.length);
+		for (String systemIp : systemIpsArr) {
+			if (Utils.getDefaultLocalIps().contains(systemIp)) {
+				continue;
+			} else if (systemIp
+					.startsWith(IPV6_REPRESENTATION_START_SUB_STRING)) {
+				standardIps.add(Utils.downToIpV4(systemIp));
+			} else {
+				standardIps.add(systemIp);
+			}
+		}
+		return standardIps;
+	}
 
 }

@@ -23,17 +23,20 @@ import com.imaginea.serverlocator.util.AWSConfigLoader;
 import com.imaginea.serverlocator.util.ApplicationConstants;
 
 public class InstancesCanTalkTopology implements ApplicationConstants{
-	Map<String, SecurityGroup> mapSGroupsWithId = new HashMap<String, SecurityGroup>();
-	Map<Instance, OptimizedIpPerms> ipPermsToEachInstance = new HashMap<Instance, OptimizedIpPerms>();
-	List<Instance> lsInstances = new ArrayList<Instance>();
+	private Map<String, SecurityGroup> mapSGroupsWithId = new HashMap<String, SecurityGroup>();
+	private Map<Instance, OptimizedIpPerms> ipPermsToEachInstance = new HashMap<Instance, OptimizedIpPerms>();
+	private List<Instance> lsInstances = new ArrayList<Instance>();
 	static final int START_POINT_ACCESS_PORT = 80;
 
-	public JSONObject getCanTalkOnTopology() {
+	public InstancesCanTalkTopology(){
 		loadEC2Instances();
+	}
+	
+	public JSONObject getCanTalkOnTopology() {
 		return publishCanTalkOnToJson();
 	}
 
-	public JSONObject publishCanTalkOnToJson() {
+	private JSONObject publishCanTalkOnToJson() {
 		List<Instance> startPointInstances = findStartPointInstances();
 		JSONObject rootInstanceRel = new JSONObject();
 		Instance instance = null;
@@ -76,7 +79,7 @@ public class InstancesCanTalkTopology implements ApplicationConstants{
 		}
 	}
 
-	public void loadEC2Instances() {
+	private void loadEC2Instances() {
 		loadSecurityGroups();
 		DescribeInstancesResult instancesResult = AWSConfigLoader
 				.getAmazonEC2().describeInstances();
@@ -98,7 +101,7 @@ public class InstancesCanTalkTopology implements ApplicationConstants{
 		}
 	}
 
-	public void loadSecurityGroups() {
+	private void loadSecurityGroups() {
 		DescribeSecurityGroupsResult securityGroupRslt = AWSConfigLoader
 				.getAmazonEC2().describeSecurityGroups();
 		if (securityGroupRslt != null
@@ -110,7 +113,7 @@ public class InstancesCanTalkTopology implements ApplicationConstants{
 		}
 	}
 
-	public OptimizedIpPerms getPermissibleIpPermsForInstance(Instance instance) {
+	private OptimizedIpPerms getPermissibleIpPermsForInstance(Instance instance) {
 		List<GroupIdentifier> instanceSGroupIdentifiers = instance
 				.getSecurityGroups();
 		OptimizedIpPerms instOptimizedIpPerms = new OptimizedIpPerms();
@@ -125,11 +128,11 @@ public class InstancesCanTalkTopology implements ApplicationConstants{
 		return instOptimizedIpPerms;
 	}
 
-	public List<Instance> findStartPointInstances() {
+	private List<Instance> findStartPointInstances() {
 		return findInstancesWithPort(START_POINT_ACCESS_PORT);
 	}
 
-	public List<Instance> findInstancesWithPort(int port) {
+	private List<Instance> findInstancesWithPort(int port) {
 		Set<Map.Entry<Instance, OptimizedIpPerms>> instanceWithIpPerms = ipPermsToEachInstance
 				.entrySet();
 		List<Instance> instancesOpenToPort = new ArrayList<Instance>();

@@ -26,7 +26,7 @@ public class AWSConfigLoader {
 	static {
 		try {
 			region = RegionUtils.getRegion(Utils
-					.getConfigPropertyAttribute("request.region"));
+					.getConfigPropertyAttributeValue("request.region"));
 			amazonEC2.setRegion(region);
 			String awsArn = amazonIM.getUser().getUser().getArn();
 			int accountIdStartPos = awsArn.indexOf("::") + 2;

@@ -49,7 +49,7 @@ public class RemoteSshProcessor implements Runnable, ApplicationConstants {
 					.getKeyPairUserIdModel(instanceJsonProperties
 							.getString(TOPOLOGY_INSTANCE_NODE_INSTANCE_ID));
 			jsch.addIdentity(Utils
-					.getConfigPropertyAttribute("instanceKeyPairs.directory")
+					.getConfigPropertyAttributeValue("instanceKeyPairs.directory")
 					+ keyPairUserIdObj.getKeyPair() + ".pem");
 			Session session = jsch.getSession(keyPairUserIdObj.getUserId(),
 					instanceJsonProperties

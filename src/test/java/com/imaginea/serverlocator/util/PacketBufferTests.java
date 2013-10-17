@@ -6,7 +6,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestPacketBuffer {
+public class PacketBufferTests {
 
 	@Test
 	public void testValidateInt() {

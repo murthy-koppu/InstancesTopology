@@ -156,13 +156,12 @@ public class InstancesTalkingTopology implements ApplicationConstants {
 			throws Exception {
 		Set<Integer> listeningPorts = new HashSet<Integer>();
 		Set<NetStatProcessModel> talkingProcesses = new HashSet<NetStatProcessModel>();
-		NetStatSysProcessUtil netstatUtil = new NetStatSysProcessUtil();
-		List<String> standardLocalIps = netstatUtil
+		NetStatLinuxParser linuxParser = new NetStatLinuxParser();
+		List<String> standardLocalIps = linuxParser
 				.getStandardSystemIP(systemIps);
 		if (standardLocalIps.isEmpty()) {
 			throw new Exception("Unable to find Machine IP Address");
 		}
-		NetStatLinuxParser linuxParser = new NetStatLinuxParser();
 		try {
 			List<NetStatProcessModel> netStatRecords = linuxParser
 					.getValidNetStatRecords(netStatIn, standardLocalIps);

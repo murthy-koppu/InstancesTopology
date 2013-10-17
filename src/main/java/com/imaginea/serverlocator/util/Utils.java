@@ -40,7 +40,7 @@ public class Utils {
 		}
 	}
 
-	public static String getConfigPropertyAttribute(String attribName) {
+	public static String getConfigPropertyAttributeValue(String attribName) {
 		return configProperties.getProperty(attribName);
 	}
 
